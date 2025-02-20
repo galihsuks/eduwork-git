@@ -6,3 +6,36 @@ MANFAAT GIT
 - berkolaborasi dengan mudah
 - bisa berkontribusi di proyek open source
 - mempermudah tracking prubahan code
+
+GIT INIT
+- insialisasi repository
+
+GIT CONFIG
+- konfig email dan usernam
+ 
+ GIT STATUS
+ - digunakan untuk mengetahui status file
+ - status file secara umum ada 3, untracked, staging area, modified.
+ 
+ GIT ADD
+ - untuk memasukann file ke staging area
+
+ GIT COMMIT 
+ - untuk mencatat peruabahan yang dilakukan
+ 
+ GIT LOG
+ - untuk melihat riwayat commmit
+
+ GIT CLONE
+ - digunakan untuk mengcopy repo dan server
+
+ GIT PUSH
+ - utnuk mengirimkan commit ke server
+
+ GIT REMOTE
+ - semacam API untuk berinteraksi dari client dengan server
+
+ GIT PULL
+ - unutk mengambil commit dari server jika ada perubahan di server yang dibuat oleh branch lain
+
+ 
