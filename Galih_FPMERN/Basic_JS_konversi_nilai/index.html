@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Konversi Nilai</title>
+    </head>
+    <body>
+        <script>
+            const input = window.prompt(`Input nilai:
+                91 - 100 : A
+                81 - 90 : B
+                71 - 80 : C
+                61 - 70 : D
+                <= 60 : E`);
+            if (Number(input) <= 60) window.alert("Nilai kamu : E");
+            else if (Number(input) <= 70) window.alert("Nilai kamu : D");
+            else if (Number(input) <= 80) window.alert("Nilai kamu : C");
+            else if (Number(input) <= 90) window.alert("Nilai kamu : B");
+            else if (Number(input) <= 100) window.alert("Nilai kamu : A");
+        </script>
+    </body>
+</html>
