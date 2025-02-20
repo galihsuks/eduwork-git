@@ -1,0 +1,8 @@
+APA ITU GIT?
+- Git adalah salah satu version control system yang diciptakan oleh Linus Torvalds
+
+MANFAAT GIT
+- menyimpan seluruh versi source code
+- berkolaborasi dengan mudah
+- bisa berkontribusi di proyek open source
+- mempermudah tracking prubahan code
