@@ -38,4 +38,12 @@ GIT CONFIG
  GIT PULL
  - unutk mengambil commit dari server jika ada perubahan di server yang dibuat oleh branch lain
 
- 
+
+BRANCH
+
+git branch : melihat semua branch (local)
+git branch --all : melihat smeua branch (public) 
+git branch [namabranch] : membuat branch baru
+git checkout [namabranch] : pindah branch
+git branch -d [namabranch] : hapus branch
+git merge [namabbranch]: untuk menggabungkan commit dari branch lain
