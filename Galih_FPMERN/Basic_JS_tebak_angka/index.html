@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tebak angka</title>
+    </head>
+    <body>
+        <script>
+            window.alert(`Selamat datang di game tebak angka
+kamu diminta untuk menbak angka 1 - 3
+dan kamu akan bermain dalam 5 ronde.
+player yang berhasil mengumpulkan tebakan terbanyak akan menang
+SELAMAT BERMAIN!!!`);
+
+            let player1 = 0;
+            let player2 = 0;
+            let ronde = 1;
+            let jawaban1 = 0;
+            let jawaban2 = 0;
+            let jawabannya = Math.floor(Math.random() * 3 + 1);
+            let player1win = false;
+            let player2win = false;
+            while (true) {
+                if (jawaban1 == 0) {
+                    jawaban1 = window.prompt(`
+                    Ronde ${ronde}
+                    =============================
+                    Skor : P1(${player1}) | P2(${player2})
+                    =============================
+                    Player 1 : masukan angka`);
+                    if (isNaN(jawaban1)) {
+                        window.alert("Jawaban harus berupa angka!");
+                        jawaban1 = 0;
+                        continue;
+                    }
+                    if (Number(jawaban1) < 1 || Number(jawaban1) > 3) {
+                        window.alert("Jawablah dengan angkat 1-3 saja!");
+                        jawaban1 = 0;
+                        continue;
+                    }
+                }
+                jawaban2 = window.prompt(`
+                Ronde ${ronde}
+                =============================
+                Skor : P1(${player1}) | P2(${player2})
+                =============================
+                Player 2 : masukan angka`);
+                if (isNaN(jawaban2)) {
+                    window.alert("Jawaban harus berupa angka!");
+                    jawaban2 = 0;
+                    continue;
+                }
+                if (Number(jawaban2) < 1 || Number(jawaban2) > 3) {
+                    window.alert("Jawablah dengan angkat 1-3 saja!");
+                    jawaban2 = 0;
+                    continue;
+                }
+                if (jawaban1 == jawaban2) {
+                    window.alert("Jawaban harus beda antar player!");
+                    jawaban2 = 0;
+                    continue;
+                }
+
+                if (Number(jawaban1) == jawabannya) {
+                    player1win = true;
+                    player1++;
+                }
+                if (Number(jawaban2) == jawabannya) {
+                    player2win = true;
+                    player2++;
+                }
+                if (player1win == player2win) {
+                    window.alert(`
+                    Hasil Seri!
+                    ====================
+                    Jawaban Player 1 : ${jawaban1}
+                    Jawaban Player 2 : ${jawaban2}
+                    Jawaban benar : ${jawabannya}
+                    `);
+                } else {
+                    window.alert(`
+                    Player ${player1win ? "1" : "2"} menang!
+                    ====================
+                    Jawaban Player 1 : ${jawaban1}
+                    Jawaban Player 2 : ${jawaban2}
+                    Jawaban benar : ${jawabannya}
+                    `);
+                }
+                ronde++;
+                if (ronde > 5) break;
+                else {
+                    jawaban1 = 0;
+                    jawaban2 = 0;
+                    jawabannya = Math.floor(Math.random() * 3 + 1);
+                    player1win = false;
+                    player2win = false;
+                }
+            }
+            if (player1 == player2) {
+                window.alert(`
+                Permainan berakhir SERI
+                ============================
+                Skor :
+                Player 1 : ${player1}
+                Player 2 : ${player2}`);
+            } else {
+                window.alert(
+                    `Permainan dimenangkan oleh Player ${
+                        player1 > player2 ? "1" : "2"
+                    }
+                ============================
+                Skor :
+                Player 1 : ${player1}
+                Player 2 : ${player2}`
+                );
+            }
+        </script>
+    </body>
+</html>
