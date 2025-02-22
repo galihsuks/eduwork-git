@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Destructuring</title>
+    </head>
+    <body>
+        <script>
+            const listproduk = [
+                {
+                    nama: "Meja Tulis",
+                    harga: 150000,
+                    ukuran: {
+                        panjang: 12,
+                        lebar: 10,
+                        tinggi: 5,
+                    },
+                    stok: 5,
+                },
+                {
+                    nama: "Kursi Gaming",
+                    harga: 850000,
+                    ukuran: {
+                        panjang: 10,
+                        lebar: 10,
+                        tinggi: 100,
+                    },
+                    stok: 2,
+                },
+                {
+                    nama: "Rak Sepatu",
+                    harga: 365000,
+                    ukuran: {
+                        panjang: 77,
+                        lebar: 30,
+                        tinggi: 100,
+                    },
+                    stok: 3,
+                },
+                {
+                    nama: "Lemari Baju",
+                    harga: 1999000,
+                    ukuran: {
+                        panjang: 100,
+                        lebar: 45,
+                        tinggi: 210,
+                    },
+                    stok: 1,
+                },
+                {
+                    nama: "Meja Rias",
+                    harga: 550000,
+                    ukuran: {
+                        panjang: 80,
+                        lebar: 20,
+                        tinggi: 120,
+                    },
+                    stok: 4,
+                },
+            ];
+
+            //Destructuring Array
+            const [produk1, produk2, ...lainnya] = listproduk;
+            console.log(produk1, produk2, lainnya);
+
+            //Destructuring Object
+            const { nama, harga, ...lainnya1 } = listproduk[0];
+            console.log(nama, harga, lainnya1);
+
+            //Destructuring Function params
+            function volumeProduk({ panjang, lebar, tinggi }) {
+                console.log(`Volume : ${panjang * lebar * tinggi}`);
+            }
+            volumeProduk(listproduk[0].ukuran);
+            function hargaTotal([...listnya]) {
+                const hasil = listnya.reduce((prev, curr) => {
+                    return {
+                        ...curr,
+                        harga: prev.harga + curr.harga,
+                    };
+                });
+                console.log(`Total harga : ${hasil.harga}`);
+            }
+            hargaTotal(listproduk);
+
+            const {
+                nama: namaProduk,
+                stok,
+                diskon = 10,
+                ukuran: { panjang },
+            } = listproduk[0];
+            console.log(namaProduk, stok, diskon, panjang);
+        </script>
+    </body>
+</html>
