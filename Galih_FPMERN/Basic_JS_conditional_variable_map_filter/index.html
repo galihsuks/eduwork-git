@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Conditional Variabel dan Map Filter</title>
+    </head>
+    <body>
+        <script>
+            const listproduk = [
+                {
+                    nama: "Meja Tulis",
+                    harga: 150000,
+                    ukuran: {
+                        panjang: 12,
+                        lebar: 10,
+                        tinggi: 5,
+                    },
+                    diskon: 50,
+                },
+                {
+                    nama: "Kursi Gaming",
+                    harga: 850000,
+                    ukuran: {
+                        panjang: 10,
+                        lebar: 10,
+                        tinggi: 100,
+                    },
+                    diskon: 20,
+                },
+                {
+                    nama: "Rak Sepatu",
+                    harga: 365000,
+                    ukuran: {
+                        panjang: 77,
+                        lebar: 30,
+                        tinggi: 100,
+                    },
+                    diskon: 30,
+                },
+                {
+                    nama: "Lemari Baju",
+                    harga: 1999000,
+                    ukuran: {
+                        panjang: 100,
+                        lebar: 45,
+                        tinggi: 210,
+                    },
+                    diskon: 10,
+                },
+                {
+                    nama: "Meja Rias",
+                    harga: 550000,
+                    ukuran: {
+                        panjang: 80,
+                        lebar: 20,
+                        tinggi: 120,
+                    },
+                    diskon: 40,
+                },
+            ];
+
+            //map
+            const hitungHargaSetelahDiskon = listproduk.map((produk) => {
+                return {
+                    ...produk,
+                    hargaAkhir: (produk.harga * (100 - produk.diskon)) / 100,
+                };
+            });
+            console.log(hitungHargaSetelahDiskon);
+
+            //filter
+            const produkDibawah500k = listproduk.filter((produk) => {
+                return produk.harga < 500000;
+            });
+            console.log(produkDibawah500k);
+
+            //conditional variabel
+            const murah = listproduk[1].harga < 500000 ? "Iya" : "Tidak";
+            console.log(murah);
+        </script>
+    </body>
+</html>
