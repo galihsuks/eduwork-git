@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Callback</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+            crossorigin="anonymous"
+        />
+    </head>
+    <body>
+        <div class="container py-5">
+            <h1>Javascript Async Callback</h1>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Company</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <script>
+            const isiTable = document.querySelector("tbody");
+            async function fetchData(url, cb) {
+                const res = await fetch(url);
+                const resJson = await res.json();
+                let hasil = false,
+                    eror = false;
+                if (res.status != 200) {
+                    eror = "Terjadi kesalahan";
+                } else {
+                    hasil = resJson;
+                }
+                cb(hasil, eror);
+            }
+            fetchData(
+                "https://jsonplaceholder.typicode.com/users",
+                (hasil, eror) => {
+                    console.log(hasil, eror);
+                    if (eror) {
+                        isiTable.innerHTML = `<tr>
+                            <td colspan="6" class="text-danger text-center">
+                                Terjadi kesalahan
+                            </td>
+                        </tr>`;
+                        return;
+                    }
+                    hasil.forEach((d) => {
+                        isiTable.innerHTML += `<tr>
+                            <td>${d.id}</td>
+                            <td>${d.name}</td>
+                            <td>${d.username}</td>
+                            <td>${d.email}</td>
+                            <td>${d.address.street}, ${d.address.suite}, ${d.address.city}</td>
+                            <td>${d.company.name}</td>
+                        </tr>`;
+                    });
+                }
+            );
+        </script>
+    </body>
+</html>
