@@ -1,0 +1,60 @@
+.container-item-todo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6em;
+    align-items: center;
+}
+
+.item-todo {
+    display: flex;
+    gap: 1em;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.item-todo input {
+    display: none;
+}
+.item-todo .checkbox {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 40px;
+    border: 2px solid gray;
+    transition: 0.2s;
+}
+.item-todo input:checked ~ div .checkbox {
+    border: 2px solid white;
+    background-color: green;
+    outline: 2px solid green;
+    transition: 0.2s;
+}
+.item-todo input:checked ~ p {
+    color: gray;
+}
+
+button {
+    font-family: "Poppins", sans-serif;
+    display: block;
+    border: 1px solid black;
+    outline: none;
+    background: none;
+    padding: 0.5em 2em;
+    border-radius: 3em;
+    transition: 0.2s;
+    cursor: pointer;
+}
+button:hover {
+    background-color: black;
+    color: white;
+    transition: 0.2s;
+}
+
+input,
+select {
+    padding: 5px 10px;
+    width: 100%;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid gray;
+}
